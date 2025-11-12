@@ -7,6 +7,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.DotNet.Interactive;
 using InteractiveKernel = Microsoft.DotNet.Interactive.Kernel;
+using HttpClient = System.Net.Http.HttpClient;
 
 // ReSharper disable InconsistentNaming
 
@@ -248,5 +249,15 @@ public static class Settings
                 Console.WriteLine("Something went wrong: " + e.Message);
             }
         }
+    }
+    public static (string model, HttpClient client, string key) GetOllamaClient()
+    {
+        var model = "deepseek-r1:1.5b";
+        var clinet = new HttpClient
+        {
+            BaseAddress = new Uri("http://localhost:11434/v1")
+        };
+        var key = "ollama";
+        return (model, clinet, key);
     }
 }
