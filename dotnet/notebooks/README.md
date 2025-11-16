@@ -1,5 +1,17 @@
 # Semantic Kernel C# Notebooks
 
+## Using local ollama with kernel 
+
+- [BulderForOllama](./config/BuilderForOllama.cs). 
+
+```csharp
+#r "nuget: Microsoft.SemanticKernel, 1.23.0"
+#!import config/Settings.cs
+#!import config/BuilderForOllama.cs
+
+var kernel = BuilderForOllama.BuildKernel("deepseek-r1");
+```
+
 The current folder contains a few C# Jupyter Notebooks that demonstrate how to get started with
 the Semantic Kernel. The notebooks are organized in order of increasing complexity.
 
